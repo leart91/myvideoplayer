@@ -1,12 +1,20 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { VideoserviceService } from '../videoservice.service'; // Adjust the import path as needed
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-player',
   standalone: true,
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './player.component.html',
-  styleUrl: './player.component.css'
+  styleUrls: ['./player.component.css']
 })
-export class PlayerComponent {
+export class PlayerComponent implements OnInit {
+  videoUrl: string | ArrayBuffer | null = null;
 
+  constructor(private videoserviceService: VideoserviceService) {}
+
+  ngOnInit() {
+    this.videoUrl = this.videoserviceService.getVideoUrl();
+  }
 }
