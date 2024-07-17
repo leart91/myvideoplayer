@@ -1,12 +1,14 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { RouterModule } from '@angular/router';
+import { PlayerComponent } from "./player/player.component";
+import { InputHandlerComponent } from "./input-handler/input-handler.component";
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet],
+  imports: [RouterModule, PlayerComponent, InputHandlerComponent],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrls: ['./app.component.css']
 })
 export class AppComponent {
   title = 'myvideoplayer';
